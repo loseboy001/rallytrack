@@ -4,6 +4,11 @@ An iOS app that analyses table tennis practice videos on the phone. It finds the
 frame, detects bounces and net crossings, splits the video into rallies, and reports ball speed and
 where the balls land on the table. Nothing is uploaded: all models run on the device.
 
+<a href="docs/media/rallytrack-demo.mp4"><img src="docs/media/rallytrack-demo.gif" width="300" alt="RallyTrack demo: ball tracking, shot count, landing map, session report"></a>
+
+Full video: [docs/media/rallytrack-demo.mp4](docs/media/rallytrack-demo.mp4) (27 s, no sound).
+Footage in the demo is from the OpenTTGames dataset, CC BY-NC-SA 4.0.
+
 This repository holds the app source and the inference work around it:
 
 | Part | What it is |
@@ -14,6 +19,7 @@ This repository holds the app source and the inference work around it:
 | `ggml/` | A port of the ball tracker to [ggml](https://github.com/ggml-org/ggml), with a patch that adds a faster Metal kernel for 3x3 convolution. |
 | `coach/` | A session summary written by a local LLM through the [llama.cpp](https://github.com/ggml-org/llama.cpp) C API. |
 | `docs/benchmarks.md` | All measurements and how to reproduce them. |
+| `docs/media/` | Demo video. |
 
 **No model weights and no training data are in this repository.** The native tools take a weight
 file you supply; the app needs the three `.mlpackage` files in `app/RallyTrack/ML/`.
