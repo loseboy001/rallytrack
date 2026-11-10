@@ -1,0 +1,88 @@
+{
+  "identifier": "6E1C1A2B",
+  "nonRenewingSubscriptions": [],
+  "products": [],
+  "settings": {
+    "_failTransactionsEnabled": false,
+    "_storeKitErrors": [],
+    "_locale": "zh_Hans",
+    "_storefront": "CHN"
+  },
+  "subscriptionGroups": [
+    {
+      "id": "21500001",
+      "localizations": [
+        {
+          "description": "",
+          "displayName": "球迹会员",
+          "locale": "zh_Hans"
+        }
+      ],
+      "name": "RallyTrack Pro",
+      "subscriptions": [
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "9.9",
+          "familyShareable": false,
+          "groupNumber": 1,
+          "internalID": "6740000001",
+          "introductoryOffer": null,
+          "localizations": [
+            {
+              "description": "Unlimited analysis & exports",
+              "displayName": "Pro Monthly",
+              "locale": "en_US"
+            },
+            {
+              "description": "不限次数分析和导出",
+              "displayName": "月度会员",
+              "locale": "zh_Hans"
+            }
+          ],
+          "productID": "com.rallytrack.pro.monthly",
+          "recurringSubscriptionPeriod": "P1M",
+          "referenceName": "Pro Monthly",
+          "subscriptionGroupID": "21500001",
+          "type": "RecurringSubscription",
+          "winbackOffers": []
+        },
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "68",
+          "familyShareable": false,
+          "groupNumber": 1,
+          "internalID": "6740000002",
+          "introductoryOffer": {
+            "internalID": "6740000003",
+            "paymentMode": "free",
+            "subscriptionPeriod": "P1W"
+          },
+          "localizations": [
+            {
+              "description": "Unlimited analysis & exports, save 40%",
+              "displayName": "Pro Yearly",
+              "locale": "en_US"
+            },
+            {
+              "description": "不限次数分析和导出，比月付省 40%",
+              "displayName": "年度会员",
+              "locale": "zh_Hans"
+            }
+          ],
+          "productID": "com.rallytrack.pro.yearly",
+          "recurringSubscriptionPeriod": "P1Y",
+          "referenceName": "Pro Yearly",
+          "subscriptionGroupID": "21500001",
+          "type": "RecurringSubscription",
+          "winbackOffers": []
+        }
+      ]
+    }
+  ],
+  "version": {
+    "major": 4,
+    "minor": 0
+  }
+}

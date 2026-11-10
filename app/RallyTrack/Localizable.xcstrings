@@ -1,0 +1,1118 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "#%lld" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "#%lld"
+          }
+        }
+      }
+    },
+    "%lld" : {},
+    "%lld rallies · %lld min" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld 个回合 · %2$lld 分钟"
+          }
+        }
+      }
+    },
+    "%lld shots" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 板"
+          }
+        }
+      }
+    },
+    "%lld%%" : {},
+    "5+ shots" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "5 板以上"
+          }
+        }
+      }
+    },
+    "10+ shots" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10 板以上"
+          }
+        }
+      }
+    },
+    "All" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全部"
+          }
+        }
+      }
+    },
+    "Analysis failed" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分析失败"
+          }
+        }
+      }
+    },
+    "Adjust Table" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "调整球台"
+          }
+        }
+      }
+    },
+    "Analyze" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开始分析"
+          }
+        }
+      }
+    },
+    "Analyze a session to see your trends." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分析一场之后就能看到趋势。"
+          }
+        }
+      }
+    },
+    "Average shots per rally" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "平均每回合板数"
+          }
+        }
+      }
+    },
+    "Ball found in %lld%% of frames · %lld fps" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld%% 的画面检测到球 · %2$lld fps"
+          }
+        }
+      }
+    },
+    "Best rally" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最长纪录"
+          }
+        }
+      }
+    },
+    "Camera access is needed to record." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "需要相机权限才能录制。"
+          }
+        }
+      }
+    },
+    "Open Settings" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开设置"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消"
+          }
+        }
+      }
+    },
+    "Couldn't find the table. Please mark its four corners." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有识别到球台，请手动标出四个角。"
+          }
+        }
+      }
+    },
+    "Counting shots…" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在统计板数…"
+          }
+        }
+      }
+    },
+    "Date" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日期"
+          }
+        }
+      }
+    },
+    "Done" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成"
+          }
+        }
+      }
+    },
+    "Drag the four corners onto the table top" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "把四个角拖到球台台面的四角"
+          }
+        }
+      }
+    },
+    "Error" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "出错了"
+          }
+        }
+      }
+    },
+    "Everything is analyzed on your phone." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "所有分析都在手机本地完成。"
+          }
+        }
+      }
+    },
+    "Everything runs on your phone. Your video never leaves it." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全部在手机本地分析，视频不会上传。"
+          }
+        }
+      }
+    },
+    "Export clip" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出片段"
+          }
+        }
+      }
+    },
+    "Exporting…" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出中…"
+          }
+        }
+      }
+    },
+    "Filter" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "筛选"
+          }
+        }
+      }
+    },
+    "Finding the table…" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在找球台…"
+          }
+        }
+      }
+    },
+    "Go Pro" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开通会员"
+          }
+        }
+      }
+    },
+    "Half-long" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "半出台"
+          }
+        }
+      }
+    },
+    "Import" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导入"
+          }
+        }
+      }
+    },
+    "Importing…" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导入中…"
+          }
+        }
+      }
+    },
+    "Landing map" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "落点分布"
+          }
+        }
+      }
+    },
+    "Long" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "长球"
+          }
+        }
+      }
+    },
+    "Longest rally" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最长回合"
+          }
+        }
+      }
+    },
+    "No data yet" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "还没有数据"
+          }
+        }
+      }
+    },
+    "No rallies found. Make sure the whole table is in view and the camera is still." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有找到回合。请确认整张球台都在画面里，并且手机没有晃动。"
+          }
+        }
+      }
+    },
+    "No rallies yet" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "还没有回合"
+          }
+        }
+      }
+    },
+    "No sessions yet" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "还没有记录"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "好"
+          }
+        }
+      }
+    },
+    "Phone sideways · whole table in view · keep it still" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "手机横放 · 拍到整张球台 · 保持不动"
+          }
+        }
+      }
+    },
+    "Pro" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "会员"
+          }
+        }
+      }
+    },
+    "Put your phone sideways next to the table so the whole table is in view." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "把手机横放在球台侧面，让整张球台都在画面里。"
+          }
+        }
+      }
+    },
+    "Rallies" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "回合"
+          }
+        }
+      }
+    },
+    "Rally" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "回合"
+          }
+        }
+      }
+    },
+    "Rally #%lld" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "回合 #%lld"
+          }
+        }
+      }
+    },
+    "RallyTrack" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "球迹"
+          }
+        }
+      }
+    },
+    "RallyTrack Pro" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "球迹会员"
+          }
+        }
+      }
+    },
+    "Record" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "录制"
+          }
+        }
+      }
+    },
+    "Session report" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本场报告"
+          }
+        }
+      }
+    },
+    "Sessions" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录"
+          }
+        }
+      }
+    },
+    "Share clip" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分享片段"
+          }
+        }
+      }
+    },
+    "Short" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "短球"
+          }
+        }
+      }
+    },
+    "shots" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "板"
+          }
+        }
+      }
+    },
+    "Shots" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "板数"
+          }
+        }
+      }
+    },
+    "Shots per rally" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每回合板数"
+          }
+        }
+      }
+    },
+    "Shots per session" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每场板数"
+          }
+        }
+      }
+    },
+    "The file has no video track." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这个文件里没有视频。"
+          }
+        }
+      }
+    },
+    "Total shots" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "总板数"
+          }
+        }
+      }
+    },
+    "Tracking the ball…" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在追踪球…"
+          }
+        }
+      }
+    },
+    "Trends" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "趋势"
+          }
+        }
+      }
+    },
+    "Try Again" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重试"
+          }
+        }
+      }
+    },
+    "Unlock with Pro" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开通会员解锁"
+          }
+        }
+      }
+    },
+    "Support future features" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支持后续新功能开发"
+          }
+        }
+      }
+    },
+    "Share highlights to social media" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "高光片段直接分享到社交平台"
+          }
+        }
+      }
+    },
+    "%lld free analyses left · Go Pro for unlimited" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "还可免费分析 %lld 场 · 开通会员不限次数"
+          }
+        }
+      }
+    },
+    "Free analyses used up · Go Pro to keep analyzing" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "免费分析次数已用完 · 开通会员继续使用"
+          }
+        }
+      }
+    },
+    "%lld free exports left · Go Pro for unlimited" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "还可免费导出 %lld 次 · 开通会员不限次数"
+          }
+        }
+      }
+    },
+    "Free exports used up · Go Pro to keep exporting" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "免费导出次数已用完 · 开通会员继续导出"
+          }
+        }
+      }
+    },
+    "Unlimited session analysis" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不限次数分析训练视频"
+          }
+        }
+      }
+    },
+    "Unlimited rally video exports" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不限次数导出回合视频"
+          }
+        }
+      }
+    },
+    "Reference shot" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "参考机位"
+          }
+        }
+      }
+    },
+    "Whole table in view" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "整张球台都在画面里"
+          }
+        }
+      }
+    },
+    "Landscape, at the side of the table" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "横屏，放在球台侧面"
+          }
+        }
+      }
+    },
+    "Level with the net, 2–4 m away. A tripod helps." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "对着球网方向，离球台 2–4 米，最好用三脚架。"
+          }
+        }
+      }
+    },
+    "All four table corners visible" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "球台四个角都要拍到"
+          }
+        }
+      }
+    },
+    "Keep both players' ends in frame. Nothing blocking the table." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "两边球员的半台都在画面里，不要有东西挡住球台。"
+          }
+        }
+      }
+    },
+    "Slow-mo 120 fps if you can" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "尽量用 120 帧慢动作"
+          }
+        }
+      }
+    },
+    "In the Camera app choose Slo-Mo, or Settings › Camera › 120 fps." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "相机里选「慢动作」，或在 设置 › 相机 里选 120 fps。"
+          }
+        }
+      }
+    },
+    "Bright, even light" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "光线明亮均匀"
+          }
+        }
+      }
+    },
+    "Avoid strong backlight from windows behind the table." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "避免球台后面有窗户强逆光。"
+          }
+        }
+      }
+    },
+    "Record full points" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完整录下每一分"
+          }
+        }
+      }
+    },
+    "Start before the serve and keep recording — rallies are cut automatically." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发球前就开始录，一直录着就行，回合会自动剪好。"
+          }
+        }
+      }
+    },
+    "Don't show again" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不再提示"
+          }
+        }
+      }
+    },
+    "Start recording" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开始录制"
+          }
+        }
+      }
+    },
+    "Choose a video" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择视频"
+          }
+        }
+      }
+    },
+    "How to film" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "怎么拍"
+          }
+        }
+      }
+    },
+    "How to film · see reference shot" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "怎么拍 · 查看参考机位"
+          }
+        }
+      }
+    },
+    "Analyzing" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在分析"
+          }
+        }
+      }
+    },
+    "Waiting…" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "排队中…"
+          }
+        }
+      }
+    },
+    "Starting…" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "准备中…"
+          }
+        }
+      }
+    },
+    "Couldn't find the table" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没找到球台"
+          }
+        }
+      }
+    },
+    "Mark table corners" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "手动标球台四角"
+          }
+        }
+      }
+    },
+    "Importing %lld…" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导入中 %lld…"
+          }
+        }
+      }
+    },
+    "Adjust table" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "调整球台并重新分析"
+          }
+        }
+      }
+    },
+    "Re-analyze" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新分析"
+          }
+        }
+      }
+    },
+    "Is the table outlined correctly?" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "球台框得对吗？"
+          }
+        }
+      }
+    },
+    "Looks right, analyze" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "对，开始"
+          }
+        }
+      }
+    },
+    "Adjust" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "调整"
+          }
+        }
+      }
+    },
+    "Confirm all (%lld)" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全部确认（%lld）"
+          }
+        }
+      }
+    },
+    "Shot %lld" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "第 %lld 板"
+          }
+        }
+      }
+    },
+    "Re-analyze this session to see the ball trail" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这条记录是旧版分析的，点报告页右上角「⋯ → 重新分析」后可显示轨迹"
+          }
+        }
+      }
+    },
+    "Top net speed (km/h)" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最快过网速度（km/h）"
+          }
+        }
+      }
+    },
+    "About %lld min %lld s left" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "大约还剩 %1$lld 分 %2$lld 秒"
+          }
+        }
+      }
+    },
+    "Green frame on the 4 table corners, pink line on the net" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "绿框要贴住台面四个角，粉线要压在球网上；不对就点「调整」"
+          }
+        }
+      }
+    },
+    "Pink line should sit on the net" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拖动四个角贴住台面的四个角，粉线要压在球网上"
+          }
+        }
+      }
+    },
+    "Analyzing table tennis video" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在分析乒乓球视频"
+          }
+        }
+      }
+    },
+    "Use the 1× lens, not 0.5×" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "用 1 倍镜头，不要用 0.5 倍广角"
+          }
+        }
+      }
+    },
+    "The ultra-wide lens bends the table edges, so landing spots and shot counts come out wrong." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "超广角会把球台边拍弯，落点和板数都会算错。"
+          }
+        }
+      }
+    },
+    "%lld shots: %lld landed on the table, %lld went out (red ✕)" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld 板：%2$lld 板落在台上，%3$lld 板出界（红叉）"
+          }
+        }
+      }
+    },
+    "%lld shots weren't clear enough to place" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "还有 %lld 板画面看不清，没标落点"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

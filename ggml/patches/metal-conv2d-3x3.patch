@@ -1,0 +1,199 @@
+diff --git a/ggml/src/ggml-metal/ggml-metal-device.cpp b/ggml/src/ggml-metal/ggml-metal-device.cpp
+index 0d18a5f..6ea9608 100644
+--- a/ggml/src/ggml-metal/ggml-metal-device.cpp
++++ b/ggml/src/ggml-metal/ggml-metal-device.cpp
+@@ -2518,7 +2518,7 @@ ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_conv_transpose_2
+     return res;
+ }
+ 
+-ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_conv_2d(ggml_metal_library_t lib, const ggml_tensor * op) {
++ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_conv_2d(ggml_metal_library_t lib, const ggml_tensor * op, bool fast_3x3) {
+     assert(op->op == GGML_OP_CONV_2D);
+ 
+     GGML_ASSERT(ggml_is_contiguous(op->src[0]));
+@@ -2529,7 +2529,9 @@ ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_conv_2d(ggml_met
+     char base[256];
+     char name[256];
+ 
+-    snprintf(base, 256, "kernel_conv_2d_%s_%s", ggml_type_name(op->src[0]->type), ggml_type_name(op->src[1]->type));
++    snprintf(base, 256, "kernel_conv_2d%s_%s_%s",
++             fast_3x3 ? "_3x3" : "",
++             ggml_type_name(op->src[0]->type), ggml_type_name(op->src[1]->type));
+     snprintf(name, 256, "%s", base);
+ 
+     ggml_metal_pipeline_with_params res = ggml_metal_library_get_pipeline(lib, name);
+diff --git a/ggml/src/ggml-metal/ggml-metal-device.h b/ggml/src/ggml-metal/ggml-metal-device.h
+index 4053a62..e07e697 100644
+--- a/ggml/src/ggml-metal/ggml-metal-device.h
++++ b/ggml/src/ggml-metal/ggml-metal-device.h
+@@ -168,7 +168,7 @@ struct ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_conv_tran
+ struct ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_conv_transpose_2d (ggml_metal_library_t lib, const struct ggml_tensor * op);
+ struct ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_col2im_1d         (ggml_metal_library_t lib, const struct ggml_tensor * op);
+ struct ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_snake             (ggml_metal_library_t lib, enum ggml_type type);
+-struct ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_conv_2d           (ggml_metal_library_t lib, const struct ggml_tensor * op);
++struct ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_conv_2d           (ggml_metal_library_t lib, const struct ggml_tensor * op, bool fast_3x3);
+ struct ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_conv_2d_dw        (ggml_metal_library_t lib, const struct ggml_tensor * op, bool tiled);
+ struct ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_conv_3d           (ggml_metal_library_t lib, const struct ggml_tensor * op);
+ struct ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_upscale           (ggml_metal_library_t lib, const struct ggml_tensor * op);
+diff --git a/ggml/src/ggml-metal/ggml-metal-ops.cpp b/ggml/src/ggml-metal/ggml-metal-ops.cpp
+index 5c93bc4..1a14d0d 100644
+--- a/ggml/src/ggml-metal/ggml-metal-ops.cpp
++++ b/ggml/src/ggml-metal/ggml-metal-ops.cpp
+@@ -5014,7 +5014,30 @@ int ggml_metal_op_conv_2d(ggml_metal_op_t ctx, int idx) {
+         /*.d1   =*/ d1,
+     };
+ 
+-    auto pipeline = ggml_metal_library_get_pipeline_conv_2d(lib, op);
++    // 3x3, stride 1, dilation 1 on contiguous tensors: 2x2 output tile x 4 output channels per thread
++    const bool fast_3x3 =
++        ne00 == 3 && ne01 == 3 &&
++        s0 == 1 && s1 == 1 && d0 == 1 && d1 == 1 &&
++        ggml_is_contiguous(op->src[1]) && ggml_is_contiguous(op) &&
++        getenv("GGML_METAL_CONV_2D_GENERIC") == nullptr;
++
++    auto pipeline = ggml_metal_library_get_pipeline_conv_2d(lib, op, fast_3x3);
++
++    if (fast_3x3) {
++        const int tx = (ne0 + 1)/2;             // output tiles along W
++        const int ty = (ne1 + 1)/2;             // output tiles along H
++        const int tz = ne3*((ne03 + 3)/4);      // batch x blocks of 4 output channels
++
++        ggml_metal_encoder_set_pipeline(enc, pipeline);
++        ggml_metal_encoder_set_bytes   (enc, &args, sizeof(args), 0);
++        ggml_metal_encoder_set_buffer  (enc, ggml_metal_get_buffer_id(op->src[0]), 1);
++        ggml_metal_encoder_set_buffer  (enc, ggml_metal_get_buffer_id(op->src[1]), 2);
++        ggml_metal_encoder_set_buffer  (enc, ggml_metal_get_buffer_id(op),         3);
++
++        ggml_metal_encoder_dispatch_threadgroups(enc, (tx + 7)/8, (ty + 7)/8, tz, 8, 8, 1);
++
++        return 1;
++    }
+ 
+     int nth = ggml_metal_pipeline_max_theads_per_threadgroup(pipeline);
+     nth = std::min(nth, 256);
+diff --git a/ggml/src/ggml-metal/kernels/conv.metal b/ggml/src/ggml-metal/kernels/conv.metal
+index a5d5aa9..5f8ad7d 100644
+--- a/ggml/src/ggml-metal/kernels/conv.metal
++++ b/ggml/src/ggml-metal/kernels/conv.metal
+@@ -282,6 +282,121 @@ typedef void (conv_transpose_1d_t)(
+         uint3   tgpig[[threadgroup_position_in_grid]],
+         uint3    tgpg[[threadgroups_per_grid]]);
+ 
++// Fast path for 3x3, stride 1, dilation 1 on contiguous [W, H, C, N] tensors.
++//
++// Each thread computes a 2x2 output tile for 4 output channels. Per input channel it loads a 4x4
++// input patch once (16 loads) and each of the 9 taps for the 4 channels once (36 loads), and
++// reuses them for all 144 multiply-adds of the tile. The generic kernel above loads one input
++// value and one weight per multiply-add.
++//
++// grid: x = OW/2, y = OH/2, z = N * ceil(OC/4)
++template <typename TK>
++kernel void kernel_conv_2d_3x3(
++        constant ggml_metal_kargs_conv_2d & args,
++        device const TK    * weights,
++        device const float * src,
++        device       float * dst,
++        uint3 gid[[thread_position_in_grid]]) {
++
++    const int32_t ow0 = 2*gid.x;
++    const int32_t oh0 = 2*gid.y;
++    if (ow0 >= args.OW || oh0 >= args.OH) {
++        return;
++    }
++
++    const int32_t ocb = (args.OC + 3)/4;
++    const int32_t n   = gid.z/ocb;
++    const int32_t oc0 = 4*(gid.z%ocb);
++
++    // weight offsets of the 4 output channels; channels past OC are clamped and dropped at the end
++    const uint wstep = 9*args.IC;
++    const uint w0 = (uint) min(oc0 + 0, args.OC - 1)*wstep;
++    const uint w1 = (uint) min(oc0 + 1, args.OC - 1)*wstep;
++    const uint w2 = (uint) min(oc0 + 2, args.OC - 1)*wstep;
++    const uint w3 = (uint) min(oc0 + 3, args.OC - 1)*wstep;
++
++    // the 4x4 input patch that covers the 2x2 output tile; positions outside the image read as zero
++    uint offs[16];
++    bool inside[16];
++    FOR_UNROLL (int j = 0; j < 4; ++j) {
++        const int32_t iy = oh0 - args.p1 + j;
++        FOR_UNROLL (int i = 0; i < 4; ++i) {
++            const int32_t ix = ow0 - args.p0 + i;
++            inside[4*j + i] = ix >= 0 && ix < args.IW && iy >= 0 && iy < args.IH;
++            offs  [4*j + i] = (uint) clamp(iy, 0, args.IH - 1)*args.IW + clamp(ix, 0, args.IW - 1);
++        }
++    }
++
++    float4 acc00 = 0.0f; // (ow0,     oh0)
++    float4 acc10 = 0.0f; // (ow0 + 1, oh0)
++    float4 acc01 = 0.0f; // (ow0,     oh0 + 1)
++    float4 acc11 = 0.0f; // (ow0 + 1, oh0 + 1)
++
++    const uint plane = (uint) args.IW*args.IH;
++    device const float * s = src + (uint) n*args.IC*plane;
++
++    for (int32_t ic = 0; ic < args.IC; ++ic) {
++        float p[16];
++        FOR_UNROLL (int i = 0; i < 16; ++i) {
++            p[i] = inside[i] ? s[offs[i]] : 0.0f;
++        }
++
++        const uint wi = 9*ic;
++        FOR_UNROLL (int ky = 0; ky < 3; ++ky) {
++            FOR_UNROLL (int kx = 0; kx < 3; ++kx) {
++                const uint k = wi + 3*ky + kx;
++                const float4 w = float4(weights[w0 + k], weights[w1 + k], weights[w2 + k], weights[w3 + k]);
++
++                acc00 += p[4*ky + kx        ]*w;
++                acc10 += p[4*ky + kx + 1    ]*w;
++                acc01 += p[4*ky + kx + 4    ]*w;
++                acc11 += p[4*ky + kx + 4 + 1]*w;
++            }
++        }
++
++        s += plane;
++    }
++
++    const bool has_x = ow0 + 1 < args.OW;
++    const bool has_y = oh0 + 1 < args.OH;
++
++    const uint oplane = (uint) args.OW*args.OH;
++    const uint o00 = (uint) n*args.OC*oplane + (uint) oh0*args.OW + ow0;
++
++    FOR_UNROLL (int c = 0; c < 4; ++c) {
++        if (oc0 + c < args.OC) {
++            const uint o = o00 + (uint) (oc0 + c)*oplane;
++
++            dst[o] = acc00[c];
++            if (has_x) {
++                dst[o + 1] = acc10[c];
++            }
++            if (has_y) {
++                dst[o + args.OW] = acc01[c];
++            }
++            if (has_x && has_y) {
++                dst[o + args.OW + 1] = acc11[c];
++            }
++        }
++    }
++}
++
++template [[host_name("kernel_conv_2d_3x3_f32_f32")]]
++kernel void kernel_conv_2d_3x3<float>(
++        constant ggml_metal_kargs_conv_2d & args,
++        device const float * weights,
++        device const float * src,
++        device       float * dst,
++        uint3 gid[[thread_position_in_grid]]);
++
++template [[host_name("kernel_conv_2d_3x3_f16_f32")]]
++kernel void kernel_conv_2d_3x3<half>(
++        constant ggml_metal_kargs_conv_2d & args,
++        device const half  * weights,
++        device const float * src,
++        device       float * dst,
++        uint3 gid[[thread_position_in_grid]]);
++
+ template <typename T>
+ kernel void kernel_conv_transpose_1d(
+         constant ggml_metal_kargs_conv_transpose_1d & args,

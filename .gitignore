@@ -1,0 +1,22 @@
+# model weights and compiled models are not part of this repository
+*.pt
+*.pth
+*.onnx
+*.gguf
+*.bin
+*.safetensors
+*.mlpackage/
+*.mlmodelc/
+*.mlmodel
+
+# build output and scratch
+build/
+work/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Xcode per-user state
+xcuserdata/
+DerivedData/
+llama.cpp/
